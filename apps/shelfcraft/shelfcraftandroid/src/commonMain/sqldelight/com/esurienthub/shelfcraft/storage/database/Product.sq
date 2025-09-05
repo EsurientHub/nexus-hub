@@ -1,0 +1,28 @@
+CREATE TABLE ProductTable (
+  inventory_id TEXT PRIMARY KEY,
+  name TEXT NOT NULL ,
+  quantity INTEGER NOT NULL ,
+  created_on INTEGER NOT NULL,
+  expiry_date INTEGER
+);
+
+getAllProduct:
+SELECT * FROM ProductTable
+ORDER BY created_on DESC;
+
+insertProduct:
+INSERT OR REPLACE INTO ProductTable
+VALUES (?, ?, ?, ?, ?);
+
+updateProduct:
+UPDATE ProductTable
+SET
+  inventory_id = ?,
+  name = ?,
+  quantity = ?,
+  created_on = ?,
+  expiry_date = ?
+WHERE inventory_id = ?;
+
+deleteAllProducts:
+DELETE FROM ProductTable;
